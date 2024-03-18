@@ -23,22 +23,36 @@ export default function Registration() {
         navigate('/');
     };
 
+    const registerUser = async () => {
+        try {
+            return await axios.post('http://localhost:8081/register', values);
+        } catch (error) {
+            throw error.response.data;
+        }
+    };
+    
+    const handleRegistrationSuccess = (userData) => {
+        console.log(userData);
+        navigate('/login');
+    };
+    
+    const handleRegistrationError = (error) => {
+        console.error('Registration error:', error);
+    };
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8081/register', values);
-            console.log(response.data); // Handle successful registration response
-            // Redirect to login page or any other desired action
-            navigate('/login');
+            const response = await registerUser();
+            handleRegistrationSuccess(response.data);
         } catch (error) {
-            console.error('Registration error:', error.response.data);
-            // Handle error, display error messages, etc.
+            handleRegistrationError(error.response.data);
         }
     };
+    
 
     return (
         <>
-        {/* Nav bar common for register and login */}
             <LandingNav/>
             <div className="heading">
                 <h1>Registration</h1>
