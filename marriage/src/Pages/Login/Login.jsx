@@ -16,22 +16,38 @@ export default function Login() {
         setValues({ ...values, [event.target.name]: event.target.value });
     };
 
-    const handleOnClick = async () => {
+    const handleLogin = async () => {
         try {
             const response = await axios.post('http://localhost:8081/login', values);
-            console.log(response.data); // Handle successful login response
-            if (values.Username === 'admin' && values.Password === 'admin') {
-                navigate('/AdminDashboard');
-            } else {
-                navigate('/dashboard');
-            }
+            console.log(response.data);
+            return response.data;
         } catch (error) {
-            console.error('Login error:', error.response.data);
-            alert("Invalid Credentials");
             setError(error.response.data);
+        displayErrorAlert(error.response.data);
         }
     };
-
+    const displayErrorAlert = (errorMessage) => {
+        console.error('Login error:', errorMessage);
+        alert("Invalid Credentials");
+    };
+    
+    const handleNavigation = (userData) => {
+        if (userData.Username === 'admin' && userData.Password === 'admin') {
+            navigate('/AdminDashboard');
+        } else {
+            navigate('/dashboard');
+        }
+    };
+    
+    const handleOnClick = async () => {
+        try {
+            const userData = await handleLogin();
+            handleNavigation(userData);
+        } catch (error) {
+            setError(error);
+        }
+    };
+    
 
     return (
         <>
