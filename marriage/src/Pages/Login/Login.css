@@ -1,72 +1,21 @@
-/* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-/* Variables */
 :root {
-    --primary-color: #ff69b4; /* Adjusted primary color to a vibrant pink */
-    --secondary-color: #5c4db1; /* Adjusted secondary color to a deep purple */
-    --white: #ffffff; /* Adjusted white color */
+    --primary-color: #ff69b4;
+    --secondary-color: #5c4db1;
+    --white: #ffffff;
+    --gradient-primary: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    --gradient-secondary: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
 }
 
-/* Common styles */
 * {
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Playfair Display', serif; /* Changed font to Playfair Display for a stylish look */
+    font-family: 'Playfair Display', serif;
 }
 
-/* Heading */
-.heading {
-    height: 200px; /* Increased height for more impact */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; /* Center the background image */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black; /* Changed text color to white for better contrast */
-    font-size: 25px; /* Increased font size for better readability */
-    text-align: center; /* Center-align text */
-}
-
-/* Form container */
-.form-container {
-    width: 80%; /* Adjusted width for better spacing */
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px; /* Increased gap for better spacing */
-}
-
-
-.item {
-    gap: 10px;
-    display: grid;
-}
-
-/* Input fields */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-input[type="submit"],
-input[type="button"] {
-    width: calc(100% - 16px); /* Adjusted width to account for padding */
-    padding: 12px; /* Increased padding for better touch interaction */
-    margin-top: 10px; /* Adjusted margin for better spacing */
-    margin-bottom: 20px; /* Increased margin for better spacing */
-    border-radius: 20px; /* Increased border radius for a softer look */
-    box-sizing: border-box;
-    font-size: 16px; /* Increased font size for better readability */
-    border: 5%; /* Removed border */
-    outline: none; /* Removed outline */
-    transition: all 0.3s ease; /* Added transition for smoother hover effect */
-}
-
-/* Login details container */
 .login-details {
-    width: 50%; /* Adjusted width for better spacing */
+    width: 50%;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -74,67 +23,104 @@ input[type="button"] {
     justify-content: center;
     align-items: center;
     padding: 25px;
-    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color)); /* Gradient background with mixed colors */
+    background: var(--gradient-secondary);
     margin: auto;
     margin-top: 5%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Login details heading */
-.login-details > h3 {
-    font-size: 24px; /* Increased font size for better readability */
-    color: var(--secondary-color); /* Changed color to secondary color */
-
-}
-
-/* Login inputs */
-.login-inputs {
-    width: 100%; /* Adjusted width for better spacing */
-    color: white;
-}
-
-/* Login header */
 .login-header {
     color: var(--white);
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); /* Gradient background with mixed colors */
-    padding: 15px 25px; /* Increased padding for better spacing */
+    background: var(--gradient-primary);
+    padding: 15px 25px;
     border-radius: 20px;
 }
 
-/* Sub-heading */
+.heading {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+}
+
+.form-container {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.item {
+    gap: 10px;
+    display: grid;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="submit"],
+input[type="button"] {
+    width: calc(100% - 16px);
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 5%;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.login-details>h3 {
+    font-size: 24px;
+    color: var(--secondary-color);
+}
+
+.login-inputs {
+    width: 100%;
+    color: white;
+}
+
 .sub-heading {
-    font-size: 18px; /* Increased font size for better readability */
-    color: var(--secondary-color); /* Changed color to secondary color */
+    font-size: 18px;
+    color: var(--secondary-color);
 }
 
-/* Main heading */
 .main-heading {
-    font-size: 32px; /* Increased font size for better readability */
-    color: var(--primary-color); /* Changed color to primary color */
+    font-size: 32px;
+    color: var(--primary-color);
 }
 
-/* Header */
 .header {
     margin-top: 5%;
     display: grid;
     gap: 1.5rem;
 }
 
-/* Button */
 #login {
-    background-color: #ff69b4; /* Pink background color */
-    color: #ffffff; /* White text color */
-    padding: 12px 24px; /* Padding for the button */
-    border: none; /* No border */
-    border-radius: 20px; /* Rounded corners */
-    cursor: pointer; /* Show pointer on hover */
-    font-size: 16px; /* Font size */
-    font-weight: bold; /* Bold font */
-    text-transform: uppercase; /* Uppercase text */
-    transition: all 0.3s ease; /* Smooth transition */
+    background-color: #ff69b4;
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
 #login:hover {
-    background-color: #ff1493; /* Darker pink on hover */
-    transform: scale(1.1); /* Scale up on hover */
+    background-color: #ff1493;
+    transform: scale(1.1);
 }
