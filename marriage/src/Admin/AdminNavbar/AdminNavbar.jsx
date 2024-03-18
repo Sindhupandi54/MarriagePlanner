@@ -1,8 +1,12 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import "./AdminNavbar.css";
 
 export default function AdminNavbar() {
+    const handleLogout = () => {
+        // Implement logout functionality here
+    };
     return (
         <nav className="navbar dashboard-nav">
             <div className="navbar-container">
@@ -26,7 +30,7 @@ export default function AdminNavbar() {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/logout" className="nav-links">
+                        <Link to="/logout" className="nav-links" onClick={handleLogout}>
                             Logout
                         </Link>
                     </li>
